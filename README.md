@@ -4,7 +4,7 @@
 ## 2018年
 
 
-### The New Schedual of Computer Lab Session 
+### **Notice**: The New Schedual of Computer Lab Session 
 
 |   Topic                | Date                | Location             |  Time               | 
 | --------------------- | -------------------- |--------------------- | ---------------------| 
