@@ -11,7 +11,7 @@ wonderful online class on [DataCamp](https://www.datacamp.com), please contact y
 
 ### Syllabus(课程计划） 
 
-- [Syllabus](https://github.com/MetricsNJU/Metrics_2018/blob/master/Syllabus/Syllabus_2018Fall_1015.pdf) 
+- [Syllabus](https://github.com/MetricsNJU/Metrics_2018/blob/master/Syllabus/Syllabus_2018Fall_new.pdf) (**10/25 updated**)
 
 ### Slides(课堂讲义）
 
