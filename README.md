@@ -8,11 +8,11 @@
 
 |   Topic                | Date                | Location             |  Time               | 
 | --------------------- | -------------------- |--------------------- | ---------------------| 
-|    Lab4: OLS in Stata and R  | 10/30         |     逸夫楼B-407/408   | 8:00-10:00am         |
-|    Lab5: DE in Stata and R   | 11/15         |    逸夫楼B-408(R)/逸B-313(Stata) | 9:00-12:00am         |
-|    Lab6: IV in Stata and R   | 11/29         |     逸夫楼B-408(R)/逸B-313(Stata)    | 9:00-12:00am         |
-|    Lab7: RD in Stata and R   | 12/13         |  逸夫楼B-408(R)/逸B-313(Stata)   | 9:00-12:00am         |
-|    Lab8:DID in Stata and R   | 12/27         |  逸夫楼B-408(R)/逸B-313(Stata)    | 9:00-12:00am         |
+|    Lab4: OLS   | 10/30         |     逸夫楼B-407/408   | 8:00-10:00am         |
+|    Lab5: DE   | 11/15         |    逸夫楼B-408(R)/逸B-313(Stata) | 9:00-12:00am         |
+|    Lab6: IV   | 11/29         |     逸夫楼B-408(R)/逸B-313(Stata)    | 9:00-12:00am         |
+|    Lab7: RD    | 12/13         |  逸夫楼B-408(R)/逸B-313(Stata)   | 9:00-12:00am         |
+|    Lab8: DID    | 12/27         |  逸夫楼B-408(R)/逸B-313(Stata)    | 9:00-12:00am         |
 
 
 
