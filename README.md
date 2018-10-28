@@ -3,6 +3,19 @@
 
 ## 2018年
 
+
+### The New Schedual of Computer Lab Session 
+
+|   Topic                | Date                | Location             |  Time               | 
+| --------------------- | -------------------- |--------------------- | ---------------------| 
+|    Lab4: OLS in Stata and R  | 10/30         |     逸夫楼B-407/408   | 8:00-10:00am         |
+|    Lab5: DE in Stata and R   | 11/15         |    逸夫楼B-408(R)/逸B-313(Stata) | 9:00-12:00am         |
+|    Lab6: IV in Stata and R   | 11/29         |     逸夫楼B-408(R)/逸B-313(Stata)    | 9:00-12:00am         |
+|    Lab7: RD in Stata and R   | 12/13         |  逸夫楼B-408(R)/逸B-313(Stata)   | 9:00-12:00am         |
+|    Lab8:DID in Stata and R   | 12/27         |  逸夫楼B-408(R)/逸B-313(Stata)    | 9:00-12:00am         |
+
+
+
 ### Online Courses for R  
 
 - Great news! Since Oct.8, 2018, this class has been supported by [DataCamp](https://www.datacamp.com), One of the most intuitive learning platform for data science in the world. Everyone offically taking the class will have full access to the entire DataCamp course curriculum for entire 6 months.You could learn the knowledge and practice skills of R,Rstudio and Python and so on for **FREE**. Thank the company a lot for the great contribution! For the question about how to join the 
