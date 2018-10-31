@@ -40,6 +40,7 @@ and CEF and Regression: [Lecture 3](https://github.com/MetricsNJU/Metrics_2018/b
 - 10/18 OLS Regression III: [Lecture 6](https://github.com/MetricsNJU/Metrics_2018/blob/master/Slides/Metrics_2018_Lec6_v4.pdf)(**10/25 updated**)
 - 10/25 OLS Regression IV: [Lecture 7](https://github.com/MetricsNJU/Metrics_2018/blob/master/Slides/2018_Metrics_Lec7_v5.pdf)(**10/25 updated**)
 - 11/1 OLS Regression V: [Lecture 8A](https://github.com/MetricsNJU/Metrics_2018/blob/master/Slides/Metrics_2018_Lec8A_v1.pdf)
+[Lecture 8B](https://github.com/MetricsNJU/Metrics_2018/blob/master/Slides/Metrics_2018_Lec8B_v1.pdf)
 
 ### Math Review (数学复习）
 
