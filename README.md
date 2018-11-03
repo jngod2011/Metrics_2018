@@ -74,10 +74,9 @@ and CEF and Regression: [Lecture 3](https://github.com/MetricsNJU/Metrics_2018/b
 - [HW1](https://github.com/MetricsNJU/Metrics_2018/blob/master/HWs/HW1.pdf)  (**9/29 updated**) **due to 10/11**
   - [DataSet: Rand.dta](https://github.com/MetricsNJU/Metrics_2018/blob/master/HWs/rand.dta)
 
-- HW2
+- [HW2](https://github.com/MetricsNJU/Metrics_2018/blob/master/HWs/HW2_2018.pdf)  (**11/3 updated**) **due to 11/18**
 - HW3 
-- HW4 
-- HW5   
+- HW4  
 
 ### Research Projects(Proposal) 
 
