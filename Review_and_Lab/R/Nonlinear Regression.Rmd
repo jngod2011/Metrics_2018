@@ -1,0 +1,183 @@
+---
+title: "**Nonlinear Regression**"
+institute: "**Business school,Nanjing University**"
+author: "Jing Bu"
+date: "11/6/2018"
+header-includes:
+    \usepackage{ctex}
+    \usepackage{color}
+    \usepackage{amsmath}
+#output: 
+#  beamer_presentation:
+documentclass: ctexart
+output:
+  rticles::ctex:
+     fig_caption: yes
+     number_sections: yes
+     toc: yes
+classoption: "hyperref,"
+#    colortheme: dolphin
+#    fonttheme: professionalfonts
+#    latex_engine: xelatex
+#    theme: CambridgeUS
+#    toc: false
+#    incremental: false
+---
+
+# Nonlinear Regression Functions: 
+
+## Introduction 
+
+- We extend nonlinear into two cases 
+
+1. nonlinear in Xs
+
+    * Logarithms and Interactions
+
+2. nonlinear in function
+
+    * Discrete Dependent Variables or Limited Dependent Variables
+    * Linear function is not a good prediciton function.
+    
+```{r setup1, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+#install.packages("plyr")
+#install.packages("MASS")
+#install.packages("lfe")
+```
+
+```{r setup2, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+## Heteroscedasticity
+
+### Plot
+```{r echo=TRUE}
+library("foreign")
+caschool<-read.dta("/Users/admin/Desktop/teaching assiatant/Econometrics/teaching assistant slides/R/caschool.dta")
+```
+
+```{r echo=TRUE}
+reg1<-lm(testscr ~ avginc,data=caschool)
+plot(residuals(reg1))
+plot(reg1)
+```
+
+### Test Heteroscedasticity
+
+```{r echo=TRUE}
+#install.packages("lmtest",repos="https://mirrors.ustc.edu.cn/CRAN/")
+library("lmtest")
+reg2<-lm(testscr ~ avginc,data=caschool)
+bptest(reg2)
+summary(reg2)
+```
+
+```{r echo=TRUE}
+avginc_log<-exp(caschool$avginc)
+reg3<-lm(testscr ~ avginc_log,data=caschool)
+bptest(reg3)
+```
+
+## Robust Regression
+
+```{r echo=TRUE}
+#install.packages("MASS",repos="https://mirrors.ustc.edu.cn/CRAN/")
+library("MASS")
+reg4<-rlm(testscr~avginc,data=caschool)
+summary(reg4)
+```
+
+## Logistic and Probit
+
+```{r echo= TRUE}
+library("foreign")
+womenwk<-read.dta("/Users/admin/Desktop/teaching assiatant/Econometrics/teaching assistant slides/R/womenwk.dta")
+```
+
+```{r echo=TRUE}
+logit<-glm(work~age+married+children+education,data=womenwk,family = binomial(link=logit))
+summary(logit)
+```
+
+
+```{r echo=TRUE}
+probit<-glm(work~age+married+children+education,data=womenwk,family = binomial(link= probit))
+summary(probit)
+```
+
+# homework 1: RAND Experiment
+
+- The RAND Health Insurance Experiment (HIE), which ran from 1974 to 1982, was one of the most influential social experiments in research history. The HIE enrolled 3,958 people aged 14 to 61 from six areas of USA. The HIE sample excluded Medicare participants and most Medicaid and military health insurance subscribers. HIE participants
+were randomly assigned to one of 14 insurance plans. Participants did not have to pay insurance premiums, but the plans had a variety of provisions related to cost sharing, leading to large differences in the amount of insurance they offered.
+
+\includegraphics{picture33.png}
+
+## Question1
+
+- Generate basic summary statistics such as mean, standard deviation,
+and total number of observations for variables female, blackhisp,educper, ghindx, and cholest, separated by the any_ins indicator.Your table for each variables should look similar as the table in Question 1. You can also combine all the information in just one table.
+
+```{r echo=TRUE}
+library("foreign")
+library("plyr")
+rand<-read.dta("/Users/admin/Desktop/teaching assiatant/Econometrics/teaching assistant slides/R/rand.dta")
+ddply(rand,"any_ins",summarize,mean_female=mean(female,na.rm=TRUE),sd_female=sd(female,na.rm=TRUE),mean_blackhisp=mean(blackhisp,na.rm=TRUE),sd_blackhisp=sd(blackhisp,na.rm=TRUE),mean_educper=mean(educper,na.rm=TRUE),sd_educper=sd(educper,na.rm=TRUE), mean_ghindx=mean(ghindx,na.rm=TRUE),sd_ghindx=sd(ghindx,na.rm=TRUE),mean_cholest=mean(cholest,na.rm=TRUE),sd_cholest=sd(cholest,na.rm=TRUE),obs=length(any_ins))
+
+```
+
+| Variable | any_ins=0| any_ins=1 |
+|:--------:|:--------:|:---------:|
+| female   | 0.560 | 0.530    |
+|          | [0.497] | [0.499]  |
+| blackhisp| 0.1717   | 0.1466  |
+|          | [0.377] | [0.354]  |
+| educper  | 12.105  | 11.936  |
+|          | [2.882] | [3.005]  | 
+| ghindx   | 70.959  | 69.934   |
+|          | [14.656]| [15.027] |
+| cholest  | 207.090 | 204.112  |
+|          | [42.446]| [43.544] |
+| obs      | 2689     | 3198      |
+
+
+## Question2
+
+- Three personal characteristics variables in question 1(thus female,blackhisp and educper) and two pre-treatment outcome variables(thus ghindx, and cholest) can be considered as baseline outcome variables. For these variables, test the null hypothesis that there is no mean difference (H0:¦Ì = 0). (You should write down the equation of the statistic which you are going to use.) And What the baseline outcomes mean to the experiment?
+
+```{r echo=TRUE}
+t.test(female~any_ins,data=rand)
+```
+
+```{r echo=TRUE}
+t.test(blackhisp~any_ins,data=rand)
+```
+
+```{r echo=TRUE}
+t.test(educper~any_ins,data=rand)
+```
+
+```{r echo=TRUE}
+t.test(ghindx~any_ins,data=rand)
+```
+
+```{r echo=TRUE}
+t.test(cholest~any_ins,data=rand)
+```
+
+
+## Question3
+
+- For the two post-treatment variables, (thus ghindxx, and cholestx)repeat the exercises you just did (compute group mean,standard deviation, and run a t-test)
+
+```{r echo=TRUE}
+t.test(ghindxx~any_ins,data=rand)
+```
+
+```{r echo=TRUE}
+t.test(cholestx~any_ins,data=rand)
+```
+
+## Question4
+
+- Interpret the results you obtain (the mean comparison results for characteristic variables, pre-treatment outcome variables, and post-treatment outcome variables).
