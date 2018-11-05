@@ -1,0 +1,79 @@
+# interaction term
+gen x3=x1*x2
+
+reg y x1 x2 x3
+
+#multiple items
+g x1=x^3
+
+reg y x x1
+
+# heteroskedasticity
+	clear all
+	global root "C:\Users\Sabrina\Desktop\econometrics"
+	cd "$root"
+	use nerlove.dta
+
+## test
+### 1.residual plot
+	reg lntc lnq lnpl lnpk lnpf
+	rvfplot
+	graph save sca1,replace
+	rvpplot lnq
+	graph save sca2,replace
+	graph combine sca1.gph sca2.gph
+	graph export sca3.png,replace
+![scatter](sca3.png)
+
+### 2.White Test
+	estat imtest,white 
+	ssc install whitetst
+	whitetst
+
+### 3.BP Test
+	estat hettest 
+	estat hettest,rhs 
+	estat hettest lnq
+
+	estat hettest, iid
+	estat hettest,rhs iid
+	estat hettest lnq, iid
+
+##correction
+### OLS + robust
+	reg lntc lnq lnpl lnpk lnpf,r 
+### WLS
+	quietly reg lntc lnq lnpl lnpk lnpf
+	predict e11,res
+	g e22=e11^2
+	g lne22=log(e22)
+	reg lne22 lnq,noc 
+	predict lne22f
+	g e22f = exp(lne22f) 
+	reg lntc lnq lnpl lnpk lnpf [aw=1/e22f]
+	
+
+# Logit & Probit Model
+
+## command:
+probit: probit y x1 x2 x3,r
+
+logit: logit y x1 x2 x3 , or vce(cluster clustvar)
+
+## examples:
+	use "$root\11.6\womenwk.dta",clear
+	reg work age married children education,r
+	logit work age married children education,nolog 
+	logit work age married children education, r nolog 
+	logit work age married children education, or nolog 
+	margins,dydx(*)
+	margins,dydx(*) atmeans
+	margins,dydx(*) at(age==30)
+	logit work age married children education , nolog vce(cluster age)
+
+
+	probit work age married children education ,nolog
+	margins,dydx(*)
+
+
+	
