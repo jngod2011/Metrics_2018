@@ -70,7 +70,7 @@ and CEF and Regression: [Lecture 3](https://github.com/MetricsNJU/Metrics_2018/b
   - [R](https://github.com/MetricsNJU/Metrics_2018/blob/master/Review_and_Lab/R/OLS_Regression.pdf) 
   
 - 11/6 Nonlinear Regression
-  - [Stata](https://github.com/MetricsNJU/Metrics_2018/blob/master/Review_and_Lab/Stata/ols(1).pdf)
+  - [Stata](https://github.com/MetricsNJU/Metrics_2018/blob/master/Review_and_Lab/Stata/1106.pdf)
   - [R](https://github.com/MetricsNJU/Metrics_2018/blob/master/Review_and_Lab/R/Nonlinear_Regression.pdf) 
   
 ### Homeworks(课后作业）
