@@ -80,6 +80,9 @@ and CEF and Regression: [Lecture 3](https://github.com/MetricsNJU/Metrics_2018/b
 
 - [HW2](https://github.com/MetricsNJU/Metrics_2018/blob/master/HWs/HW2_2018.pdf)  (**11/3 updated**) **due to 11/18**
   - [DataSet: chengfen.dta](https://github.com/MetricsNJU/Metrics_2018/blob/master/HWs/chengfen.dta)
+  - [DataSet: cps08.xlsx](https://github.com/MetricsNJU/Metrics_2018/blob/master/HWs/cps08.xlsx)
+  - [DataSet: cps92_08.xlsx](https://github.com/MetricsNJU/Metrics_2018/blob/master/HWs/cps92_08.xlsx)
+  
 - HW3 
 - HW4  
 
