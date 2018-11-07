@@ -42,6 +42,9 @@ and CEF and Regression: [Lecture 3](https://github.com/MetricsNJU/Metrics_2018/b
 - 11/1 OLS Regression V: [Lecture 8A](https://github.com/MetricsNJU/Metrics_2018/blob/master/Slides/Lec8A_2018_Metrics_v3.pdf)(**11/1 updated**),
 [Lecture 8B](https://github.com/MetricsNJU/Metrics_2018/blob/master/Slides/Lec8B_2018_Metrics_v2.pdf)(**11/1 updated**)
 
+- 11/8 OB Decomposition: [Lecture 9](https://github.com/MetricsNJU/Metrics_2018/blob/master/Slides/2018_Lec9_new.pdf)
+
+
 ### Math Review (数学复习）
 
 - 9/11 [Recite 1](https://github.com/MetricsNJU/Metrics_2018/blob/master/Review_and_Lab/Recite_1/recite_1_review_of_probability.pdf)
