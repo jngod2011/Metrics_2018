@@ -1,0 +1,227 @@
+set memory 2048M
+set matsize  7800 // set matsize sets the maximum matrix size,which influences the number of variables that can be included in any of Stata's estimation commands.
+set maxvar 10000
+
+
+
+use C:\Users\Sabrina\Desktop\econometrics\olsnew\chip2002_rank,clear 
+
+
+/***********************************************/
+/*  PART 1: preparing data                       */
+/***********************************************/
+
+
+tab rank3_al,gen(rank)
+
+foreach i in num sec ship contr occup {
+
+tab emp_`i',gen(`i')
+
+}
+
+tab c_id,gen(cid)
+
+
+/* [> macro variables <] */ 
+
+
+global cid cid1-cid76
+global dem age male mino marrige
+global hc  edu ew ew2 g_health
+global pc  cparty ra_exp_soc2
+global wc  num1 num2 num3 contr1 contr2 contr3 contr4 ///
+           sec1 sec2 sec3 sec4 sec5 sec6 sec7  ship1  ///
+           ship2 ship3 ship4 ship5 occup1 occup2      ///
+           occup3 occup4
+
+		   
+save C:\Users\Sabrina\Desktop\econometrics\olsnew\chip2002_rank_final,replace		   
+		   
+
+
+/************************************************/
+/*    Part II     Oaxaca-Blinder Decomposition  */
+/************************************************/
+
+
+ 
+// install command Oaxaca 
+
+
+**ssc install oaxaca
+
+** findit oaxaca
+
+
+
+// Aggregate OB decomposition: All analysis is about the wage difference between the new elite(red) group and the non-elite group.
+
+
+tab rank3_al
+
+
+*=======I). three folds: Aggregate OB decomposition=====* 
+
+oaxaca lnhw  ${dem} ${hc} ${pc} ${wc} ${cid} ///
+       if rank3_al==1 | rank3_al==3, by(rank1) relax
+
+oaxaca lnhw  ${dem} ${hc} ${pc} ${wc} ${cid} ///
+       if rank3_al==1 | rank3_al==3, by(rank1) swap relax
+	   
+est store oa1
+
+
+*=======II). two folds: Aggregate OB decomposition=====* 
+
+
+/* [> 1. different weight: Remember: Weight beta*=W*beta_0+(I-W)beta_1*** <] */ 
+
+
+/// Weight: beta*=W*beta_0+(I-W)beta_1
+
+***1). weight==1: beta*=beta_0:Wage of new elite is viewed as non-discriminatory
+
+oaxaca lnhw  ${dem} ${hc} ${pc} ${wc} ${cid} ///
+       if rank3_al==1 | rank3_al==3, by(rank1) weight(1) swap relax
+
+est store oa2
+
+***2). weight==0: beta*=beta_1: Wage of non-elite is viewed as non-discriminatory
+
+oaxaca lnhw  ${dem} ${hc} ${pc} ${wc} ${cid} ///
+       if rank3_al==1 | rank3_al==3, by(rank1) weight(0) swap relax
+
+est store oa3       
+
+***3). weight==0.5: Reimers(1983)
+
+oaxaca lnhw  ${dem} ${hc} ${pc} ${wc} ${cid} ///
+       if rank3_al==1 | rank3_al==3, by(rank1) weight(0.5) swap relax
+
+
+est store oa4    
+
+***4). weight==p^0I: Cotton(1988)
+
+sum rank1 if rank3_al==1 | rank3_al==3
+
+local p_1=1-r(mean)
+
+oaxaca lnhw  ${dem} ${hc} ${pc} ${wc} ${cid} ///
+       if rank3_al==1 | rank3_al==3, by(rank1) weight(`p_1') swap relax
+ 
+est store oa5
+ 
+***5). Omega: Neumark (1988), Oaxaca and Ransom (1994)
+
+oaxaca lnhw  ${dem} ${hc} ${pc} ${wc} ${cid} ///
+       if rank3_al==1 | rank3_al==3, by(rank1) omega swap relax
+
+est store oa6    
+
+***6). Pooled: Jann(2008) and Fortin(2011)
+
+oaxaca lnhw ${dem} ${hc} ${pc} ${wc} ${cid} ///
+       if rank3_al==1 | rank3_al==3, by(rank1) pooled swap relax
+
+est store oa7 
+
+/*------------------------------------*/
+/* [>   Table 1 Oaxaca-Blinder:    <] */ 
+/*-----------------------------------*/
+
+esttab oa2 oa3 oa4 oa5 oa6 oa7,          ///
+       b(%6.3f) se(%6.3f) nogaps compress       ///         
+       star(* 0.1 ** 0.05 *** 0.01) replace     ///
+       obslast  r2(%6.3f) 
+   
+
+/* [> 2. ***Standard error: Robust and Bootstrap S.E*** <] */ 
+
+
+oaxaca lnhw ${dem} ${hc} ${pc} ${wc} ${cid} ///
+       if rank3_al==1 | rank3_al==3, by(rank1) pooled swap relax
+
+est store oase1
+
+oaxaca lnhw ${dem} ${hc} ${pc} ${wc} ${cid} ///
+       if rank3_al==1 | rank3_al==3, by(rank1) pooled swap vce(robust) relax
+
+est store oase2
+
+
+
+/*------------------------------------*/
+/* [> Table 2 Oaxaca-Blinder: S.E. <] */ 
+/*-----------------------------------*/
+
+esttab oase1 oase2 ,                ///
+       b(%6.3f) se(%6.3f) nogaps compress       ///         
+       star(* 0.1 ** 0.05 *** 0.01) replace     ///
+       obslast  r2(%6.3f) 
+
+
+*=======III). two folds: Detailed OB decomposition=====* 
+
+oaxaca lnhw ${dem} ${hc} ${pc} ${wc} ${cid} ///
+       if rank3_al==1 | rank3_al==3, by(rank1)    ///
+       pooled swap vce(robust) detail relax
+
+
+***too long table: detail option
+
+oaxaca lnhw ${dem} ${hc} ${pc} ${wc} ${cid} ///
+       if rank3_al==1 | rank3_al==3, by(rank1)    ///
+       pooled swap vce(robust) relax detail(dem:${dem}, ///
+       hc:${hc},pc:${pc},wc:${wc},cid:${cid})
+
+est store oa13
+
+
+*** the old elite v.s non elite
+
+oaxaca lnhw ${dem} ${hc} ${pc} ${wc} ${cid} ///
+       if rank3_al==2 | rank3_al==3, by(rank2)    ///
+       pooled swap vce(robust) relax detail(dem:${dem}, ///
+       hc:${hc},pc:${pc},wc:${wc},cid:${cid})
+
+est store oa23
+
+
+/*------------------------------------*/
+/* [> Table 3 Oaxaca-Blinder: detailed <] */ 
+/*-----------------------------------*/
+
+esttab oa13 oa23,                ///
+       b(%6.3f) se(%6.3f) nogaps compress       ///         
+       star(* 0.1 ** 0.05 *** 0.01) replace     ///
+       obslast  r2(%6.3f) relax
+
+
+*=======IV).bootstrap 自助法  =====* 
+
+
+/// bootstrap 自助法 （又称为自举法）：是对原始样本进行“再抽样”的方法
+// 最常见实现自助法的方法：使用可选项 vce(bootstrap)
+// 例如： reg y x1 x2 x3, vce(boot,reps(400))  // reps(400)表明抽样的样本个数为400次
+
+
+***regression: OLS***(添加這部分內容) 
+reg lnhw  ${dem} ${hc} ${pc} ${wc} ${cid} if rank1==1 ,vce(boot,r(100))
+
+
+***Oaxaca***
+
+oaxaca lnhw ${dem} ${hc} ${pc} ${wc} ${cid} ///
+       if rank3_al==1 | rank3_al==3, by(rank1) pooled relax swap vce(robust)
+
+oaxaca lnhw ${dem} ${hc} ${pc} ${wc} ${cid} ///
+       if rank3_al==1 | rank3_al==3, by(rank1) pooled relax swap vce(boot,r(100))
+//reps(100) 表明抽样的样本个数为100
+
+
+// 对于一般的统计量使用自助法，可以使用命令bootstrap
+// bootstrap, _b _se, reps(400): reg y x1 x2 x3
+bootstrap, _b _se, reps(100): oaxaca lnhw ${dem} ${hc} ${pc} ${wc} ${cid} ///
+       if rank3_al==1 | rank3_al==3, by(rank1) relax pooled swap
