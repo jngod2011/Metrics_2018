@@ -1,0 +1,169 @@
+---
+title: "**Oaxaca Decomposition**"
+institute: "**Business school,Nanjing University**"
+author: "Jing Bu"
+date: "11/15/2018"
+header-includes:
+    \usepackage{ctex}
+    \usepackage{color}
+    \usepackage{amsmath}
+#output: 
+#  beamer_presentation:
+documentclass: ctexart
+output:
+  rticles::ctex:
+     fig_caption: yes
+     number_sections: yes
+     toc: yes
+classoption: "hyperref,"
+#    colortheme: dolphin
+#    fonttheme: professionalfonts
+#    latex_engine: xelatex
+#    theme: CambridgeUS
+#    toc: false
+#    incremental: false
+---
+
+# Oaxaca Decomposition
+
+## Overview of the oaxaca package
+
+```{r echo=TRUE}
+#install.packages("oaxaca")
+library("foreign")
+oaxaca<-read.dta("/Users/admin/Desktop/teaching assiatant/Econometrics/teaching assistant slides/R/oaxaca.dta")
+```
+
+```{r echo=TRUE,results='hide'}
+library("oaxaca")
+results <- oaxaca(formula = lnwage ~ educ+exper+tenure | female , data = oaxaca, R = 500)
+summary(results)
+```
+
+## Sample Size
+
+```{r echo=TRUE}
+results$n
+```
+
+- The n component of the resulting "oaxaca"-class object indicates that there are nA = 751 male workers and nB = 683 female workers in the analyzed sample. The pooled analysis contains nA + nB = 1434 observations.
+
+
+## Difference
+
+```{r echo=TRUE}
+results$y
+```
+
+The y component of the resulting "oaxaca" class object indicates that the mean log hourly wage is 3.44 for the male workers (Group A) and 3.27 for female workers, leaving the difference of approximately 0.17 to be explained by the Blinder-Oaxaca decomposition
+
+## Pooled Regression
+
+```{r echo=TRUE}
+summary(results$reg$reg.pooled.1)$coefficients["educ",]
+```
+
+```{r echo=TRUE}
+summary(results$reg$reg.pooled.2)$coefficients["educ",]
+```
+
+## Threefold decomposition
+
+- First, we look at the results of the threefold Blinder-Oaxaca decomposition:
+
+```{r echo=TRUE}
+results$threefold$overall
+```
+
+
+- The results of the threefold decomposition suggest that, of the 0.17 difference, approximately 0.09 can be attributed to group differences in endowments (i.e. education), 0.08 to differences in coeffcients, and the remaining 0.01 is accounted for by the interaction of the two. Next, we examine the endowments and coeffcients components of the threefold decomposition variable by variable. This is most easily done by using the plot() method:
+
+### Plot
+
+```{r echo=TRUE}
+plot(results, components = c("endowments","coefficients"))
+```
+
+- The Figure shows the estimation results for each variable, along with error bars that indicate 95% confidence intervals. In the endowments component, variables educ and exper appear to have a statistically insignificant influence.
+
+```{r echo=TRUE}
+results$beta$beta.diff["tenure"]
+```
+
+- As the difference in the educ coeffcients between female and male workers shows, the wage payoff of an additional year of male workers' years of tenure is greater than female workers by almost 0.6 percent. 
+
+```{r echo=TRUE}
+results$beta$beta.diff["exper"]
+```
+
+```{r echo=TRUE}
+results$beta$beta.diff["educ"]
+```
+
+## Twofold decomposition
+
+- Let W be a diagonal matrix of weights, such that
+Weight: $\beta^{*}=W\hat\beta_A+(1-W)\hat\beta_B$
+
+```{r echo=TRUE}
+results$twofold$overall
+```
+
+
+- For presentational ease, we focus the discussion on the Neumark (1988) decomposition, which uses pooled regression coefficients (from a regression that does not include the group indicator variable female) as the reference coefficient set. The Neumark decomposition is denoted by -1 in the weights column. The results of the overall twofold decomposition indicate that the 0.17 wage gap be male and female workers can be decomposed into 0.09 that can be explained by group differences in the explanatory variables and 0.08 that is unexplained.
+(Neumark(1988) also use the coeffients from a pooled model over both groups as the reference coefficients,thus $\beta^*=(X^{'}X)^{-1}(X^{'}Y)$)
+
+- Let us assume that the unexplained component of the wage gap occurs due to labor market discrimination, and that the pooled regression coefficients are non-discriminatory. The Blinder-Oaxaca decomposition would then also indicate that 0.0385 of the unexplained part originates from discrimination in favor of male workers (component "unexplained A"), while 0.0423 comes from discrimination against female workers (component "unexplained B"). The standard errors provide a sense of the uncertainty that accompanies all of the point estimates.
+
+### Plot
+
+```{r echo=TRUE}
+plot(results, decomposition = "twofold", group.weight = -1)
+```
+
+```{r echo=TRUE}
+plot(results, decomposition = "twofold", group.weight = -1, unexplained.split =TRUE, components = c("unexplained A", "unexplained B"), component.labels = c("unexplained A" ="In Favor of male workers", "unexplained B" = "Against the female workers"),variables = c("educ", "exper", "tenure"), variable.labels = c("educ" ="Years of Education", "exper" = "years of work experience", "tenure" = "years of job tenure"))
+```
+
+
+
+- We use a variety of plot() method arguments to customize the formatting of the resulting bar graph. Through the components and component.labels arguments, I choose to display only the two subparts "unexplained A" (i.e., discrimination in favor of Group A) and "unexplained B" (discrimination against Group B)  of the unexplained decomposition component, and attach appropriate labels to them. Similarly, I use the variables and
+variable.labels arguments to select and label the variables I examine.
+
+```{r echo=TRUE}
+plot(results, decomposition = "twofold", group.weight = -1, unexplained.split =TRUE, components = c("unexplained A", "unexplained B"), component.labels = c("unexplained A" ="In Favor of male workers", "unexplained B" = "Against the female workers"),component.left = TRUE,variables = c("educ", "exper", "tenure"), variable.labels = c("educ" ="Years of Education", "exper" = "years of work experience", "tenure" = "years of job tenure"))
+```
+
+- Assume that there is no discrimination of male workers (denoted as group A)
+
+```{r echo=TRUE}
+plot(results, decomposition = "twofold", group.weight = 0)
+```
+
+- Assume that there is no discrimination of female workers (denoted as group B)
+
+```{r echo=TRUE}
+plot(results, decomposition = "twofold", group.weight = 1)
+```
+
+- Reimers(1983)therefore proposes using the average coefficients over both groups as an estimate for the nondiscriminatory parameter vector that is
+$$\hat{{\beta}^{*}}={\hat{0.5\beta^{*}_A}}+{\hat{0.5{\beta}^{*}_B}}$$
+```{r echo=TRUE}
+plot(results, decomposition = "twofold", group.weight = 0.5)
+```
+
+
+
+## Generate Dummy Variable
+
+```{r echo=TRUE}
+isco.x = factor(oaxaca$isco)
+dummies = model.matrix(~isco.x)
+```
+
+## Output
+
+```{r echo=TRUE}
+library("stargazer")
+stargazer(results$threefold$`overall`,type="text63")
+```
