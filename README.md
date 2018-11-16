@@ -76,7 +76,7 @@ and CEF and Regression: [Lecture 3](https://github.com/MetricsNJU/Metrics_2018/b
   
 - 11/15 Decomposition
   - [Stata](https://github.com/MetricsNJU/Metrics_2018/blob/master/Review_and_Lab/Stata/decomposition.do)
-  - [R](https://github.com/MetricsNJU/Metrics_2018/blob/master/Review_and_Lab/R/Nonlinear_Regression.pdf)  
+  - [R](https://github.com/MetricsNJU/Metrics_2018/blob/master/Review_and_Lab/R/Oaxaca_Decomposition.pdf)  
 
 ### Homeworks(课后作业）
 
