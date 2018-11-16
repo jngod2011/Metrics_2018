@@ -74,6 +74,10 @@ and CEF and Regression: [Lecture 3](https://github.com/MetricsNJU/Metrics_2018/b
   - [Stata](https://github.com/MetricsNJU/Metrics_2018/blob/master/Review_and_Lab/Stata/1106.pdf)
   - [R](https://github.com/MetricsNJU/Metrics_2018/blob/master/Review_and_Lab/R/Nonlinear_Regression.pdf) 
   
+- 11/15 Decomposition
+  - [Stata](https://github.com/MetricsNJU/Metrics_2018/blob/master/Review_and_Lab/Stata/decomposition.do)
+  - [R](https://github.com/MetricsNJU/Metrics_2018/blob/master/Review_and_Lab/R/Nonlinear_Regression.pdf)  
+
 ### Homeworks(课后作业）
 
 - [HW1](https://github.com/MetricsNJU/Metrics_2018/blob/master/HWs/HW1.pdf)  (**9/29 updated**) **due to 10/11**
