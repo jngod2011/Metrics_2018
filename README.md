@@ -41,7 +41,7 @@ and CEF and Regression: [Lecture 3](https://github.com/MetricsNJU/Metrics_2018/b
 - 11/1 OLS Regression V: [Lecture 8A](https://github.com/MetricsNJU/Metrics_2018/blob/master/Slides/Lec8A_2018_Metrics_v3.pdf)(**11/1 updated**),
 [Lecture 8B](https://github.com/MetricsNJU/Metrics_2018/blob/master/Slides/Lec8B_2018_Metrics_v2.pdf)(**11/1 updated**)
 - 11/8 OB Decomposition: [Lecture 9](https://github.com/MetricsNJU/Metrics_2018/blob/master/Slides/2018_Metrics_Lec9.pdf)(**11/8 updated**)
-- 11/22 Instrumental Variable: [Lecture 10](https://github.com/MetricsNJU/Metrics_2018/blob/master/Slides/Metrics_2018_Lec10_v2.pdf)
+- 11/22 Instrumental Variable: [Lecture 10](https://github.com/MetricsNJU/Metrics_2018/blob/master/Slides/Metrics_2018_Lec10_v2.pdf)(**11/21 updated**)
 
 ### Math Review (数学复习）
 
