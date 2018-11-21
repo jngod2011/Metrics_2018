@@ -125,26 +125,7 @@ and CEF and Regression: [Lecture 3](https://github.com/MetricsNJU/Metrics_2018/b
 - [Recite 1](https://github.com/MetricsNJU/Metrics_2018/blob/master/Review_and_Lab/Recite_1/Recite_1_Qu.pdf)
 - [Recite 2](https://github.com/MetricsNJU/Metrics_2018/blob/master/Review_and_Lab/Recite_2/Recite_2_Qu.pdf)
 
-### Computer Lab Exercise(上机练习）
 
-1. Introdution(I): [R](https://github.com/MetricsNJU/Metrics_2018/blob/master/2017old/Lab/01_R_install.pdf)
-2. Introdution(II) 
-3. Ordinary Least Squres(OLS) 
-4. Matching 
-5. Decomposition(DEM)
-6. Instrumental Variable(IV)
-7. Regression Discountinuity(RD)
-8. Fixed Effect and DID(DID)
-
-### Homeworks(课后作业）
-
-- HW1
-- HW2
-- HW3 
-- HW4 
-- HW5 
-
-### Research Projects(Proposal) 
 
 
 
