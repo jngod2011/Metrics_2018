@@ -1,0 +1,163 @@
+---
+title: "**Instrumental Variables Estimation**"
+institute: "**Business school,Nanjing University**"
+author: "Jing Bu"
+date: "11/29/2018"
+header-includes:
+    \usepackage{ctex}
+    \usepackage{color}
+    \usepackage{amsmath}
+#output: 
+#  beamer_presentation:
+documentclass: ctexart
+output:
+  rticles::ctex:
+     fig_caption: yes
+     number_sections: yes
+     toc: yes
+classoption: "hyperref,"
+#    colortheme: dolphin
+#    fonttheme: professionalfonts
+#    latex_engine: xelatex
+#    theme: CambridgeUS
+#    toc: false
+#    incremental: false
+---
+
+# Instrumental Variables in Simple Regression Models
+
+- We only analyze women with non-missing wage, so we extract a subset from our data, we want to estimate the return to education for these women. As an instrumental variable for education, we use the education of her father: fathereduc. First, we caculate the OLS and IV slope parameters, respectively. Remember that the *with* command defines that all variables names refer to our data frame oursample. Then the full OLS and IV estimates are caculated using the boxed routines lm and ivreg, respectively.
+
+## restrict to non-missing wage observations
+```{r echo=TRUE}
+#install.packages("AER")
+library("foreign")
+library("AER")
+mroz<-read.dta("/Users/admin/Desktop/teaching assiatant/Econometrics/teaching assistant slides/R/mroz.dta")
+oursample <- subset(mroz, !is.na(wage)) 
+```
+
+## OLS slope parameter manually
+```{r echo=TRUE}
+with(oursample, cov(log(wage),educ) / var(educ) )
+```
+
+## IV slope parameter manually
+```{r echo=TRUE}
+with(oursample, cov(log(wage),fatheduc) / cov(educ,fatheduc) )
+```
+
+## OLS automatically
+```{r echo=TRUE}
+reg.ols <-lm(log(wage) ~ educ, data=oursample)
+```
+
+## IV automatically 
+```{r echo=TRUE}
+reg.iv <-ivreg(log(wage) ~ educ | fatheduc, data=oursample)
+```
+
+## Pretty regression table
+```{r echo=TRUE}
+library("stargazer")
+stargazer(reg.ols,reg.iv, type="text")
+```
+
+# More Exogenous Regressors
+
+## Using college proximity as an IV for education
+
+- We use *CARD.dta* to estimate the return to education. Education is allowed to be endogenous and instrumented with the dummy variable *nearc4* which indicates whether the individual grew up close to a college. In addition, we control for experience, race, and regional information. These variables are assumed to be exogenous and act as their own instruments. We first check for relevance by regressing the endogenous independent variable *educ* on all exogenous variables including the instrument *nearc4*. Its parameter is highly signficantly different from zero,so relevance is supported. We then estimate the log wage equation with OLS and IV. All results are displayed in one table with **stargazer**.
+
+### Checking for relevance: reduced form
+
+```{r echo=TRUE}
+library("AER")
+library("foreign")
+card<-read.dta("/Users/admin/Desktop/teaching assiatant/Econometrics/teaching assistant slides/R/card.dta")
+```
+
+```{r echo=TRUE}
+redf<-lm(educ ~nearc4+exper+I(exper^2)+black+smsa+south+smsa66+reg662+reg663+reg664+reg665+reg666+reg667+reg668+reg669, data=card)
+```
+
+### OLS
+```{r echo=TRUE}
+ols<-lm(log(wage)~educ+exper+I(exper^2)+black+smsa+south+smsa66+reg662+reg663+reg664+reg665+reg666+reg667+reg668+reg669, data=card)
+```
+
+### IV estimation
+```{r echo=TRUE}
+iv <-ivreg(log(wage)~educ+exper+I(exper^2)+black+smsa+south+smsa66+reg662+reg663+reg664+reg665+reg666+reg667+reg668+reg669 | nearc4+exper+I(exper^2)+black+smsa+south+smsa66+reg662+reg663+reg664+reg665+reg666+reg667+reg668+reg669,data=card)
+```
+
+### Pretty regression table of selected coefficients
+```{r echo=TRUE}
+library("stargazer")
+stargazer(redf,ols,iv,type="text",keep=c("educ","nearc4","exper","black"),keep.stat=c("n","rsq"))
+```
+
+# Two Stage Least Squares
+
+- Two stage least squares(2SLS) is a general approach for IV estimation when we have one or more endogenous regressors and at least as many additional instrumental variables.
+
+## Return to education for working women
+
+- We still want to estimate the return to education for women using the data in *MROZ.dta*. Now,we use both mother's and father's education as instruments for the own education.In the following script,we obtain 2SLS estimates in two ways:First,we do both stages manually,including fitted education as **fitted(stage1)** as a regressors in the second stage. **ivreg**does this automatically and delivers the same parameter estimates as the output table reveals.  AABut the standard errors differ slightly because the manual two stage version did not correct them.
+
+### restrict to non-missing wage observations
+
+```{r echo=TRUE}
+library("AER")
+library("foreign")
+oursample <- subset(mroz, !is.na(wage))
+```
+
+### 1st stage: reduced form
+
+```{r echo=TRUE}
+stage1 <- lm(educ~exper+I(exper^2)+motheduc+fatheduc, data=oursample)
+```
+
+### 2nd stage
+```{r echo=TRUE}
+man.2SLS<-lm(log(wage)~fitted(stage1)+exper+I(exper^2), data=oursample)
+```
+
+### Automatic 2SLS estimation
+```{r echo=TRUE}
+aut.2SLS<-ivreg(log(wage)~educ+exper+I(exper^2) | motheduc+fatheduc+exper+I(exper^2),data=oursample)
+```
+
+### Pretty regression table
+```{r echo=TRUE}
+library("stargazer")
+stargazer(stage1,man.2SLS,aut.2SLS,type="text",keep.stat=c("n","rsq"))
+```
+
+# Testing for Exogeneity of the Regressor
+
+- There is another way to get the same IV parameter estimates as with 2SLS.In the same setup as above,this "control function approach"also consist of two stages.
+
+- We use both mother's and father's education as instruments.The first stage regression is identical as in last section.The second stage adds the first stage residuals to the original list of regressors.The parameter estimates are identical to both the manual 2SLS and the automatic **ivreg**results.We can directly interpret the t test from the regression table as a test for exogeneity. Here,$t=1.6711$ with a two-sided $p$ value of $p=0.095$, indicating a marginally significant evidence for endogeneity.
+
+```{r echo=TRUE}
+library("AER")
+library("lmtest")
+```
+
+## 1st stage: reduced form
+```{r echo=TRUE}
+stage1<-lm(educ~exper+I(exper^2)+motheduc+fatheduc, data=oursample)
+```
+
+## 2nd stage
+```{r echo=TRUE}
+stage2<-lm(log(wage)~educ+exper+I(exper^2)+resid(stage1),data=oursample)
+```
+
+## results including t tests
+```{r echo=TRUE}
+coeftest(stage2)
+```
+
