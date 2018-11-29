@@ -94,8 +94,9 @@ and CEF and Regression: [Lecture 3](https://github.com/MetricsNJU/Metrics_2018/b
   - [DataSet: cps08.xlsx](https://github.com/MetricsNJU/Metrics_2018/blob/master/HWs/cps08.xlsx)
   - [DataSet: cps92_08.xlsx](https://github.com/MetricsNJU/Metrics_2018/blob/master/HWs/cps92_08.xlsx)
   
-- [HW3](https://github.com/MetricsNJU/Metrics_2018/blob/master/HWs/HW3_2018.pdf)  (**11/3 updated**) **due to 11/25** 
-
+- [HW3](https://github.com/MetricsNJU/Metrics_2018/blob/master/HWs/HW3_2018.pdf)  (**11/30 updated**) **due to 12/29** 
+  - [DataSet: fertility](https://github.com/MetricsNJU/Metrics_2018/blob/master/HWs/fertility.dta)
+  - [DataSet: chip2002_2007](https://github.com/MetricsNJU/Metrics_2018/blob/master/HWs/chip2002_2007.dta)
 
 - HW4  
 
