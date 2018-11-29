@@ -77,8 +77,8 @@ and CEF and Regression: [Lecture 3](https://github.com/MetricsNJU/Metrics_2018/b
   - [R](https://github.com/MetricsNJU/Metrics_2018/blob/master/Review_and_Lab/R/Oaxaca_Decomposition.pdf)  
   
 - 11/29 IV Estimation
-  - [Stata](https://github.com/MetricsNJU/Metrics_2018/blob/master/Review_and_Lab/Stata/decomposition)
-  - [R](https://github.com/MetricsNJU/Metrics_2018/blob/master/Review_and_Lab/R/Oaxaca_Decomposition.pdf) 
+  - [Stata](https://github.com/MetricsNJU/Metrics_2018/blob/master/Review_and_Lab/Stata/iv.pdf)
+  - [R](https://github.com/MetricsNJU/Metrics_2018/blob/master/Review_and_Lab/R/Instrumental_variables_estimation.pdf) 
 
 ### Homeworks(课后作业）
 
