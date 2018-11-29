@@ -94,7 +94,9 @@ and CEF and Regression: [Lecture 3](https://github.com/MetricsNJU/Metrics_2018/b
   - [DataSet: cps08.xlsx](https://github.com/MetricsNJU/Metrics_2018/blob/master/HWs/cps08.xlsx)
   - [DataSet: cps92_08.xlsx](https://github.com/MetricsNJU/Metrics_2018/blob/master/HWs/cps92_08.xlsx)
   
-- HW3 
+- [HW3](https://github.com/MetricsNJU/Metrics_2018/blob/master/HWs/HW3_2018.pdf)  (**11/3 updated**) **due to 11/25** 
+
+
 - HW4  
 
 ### Research Projects(Proposal) 
