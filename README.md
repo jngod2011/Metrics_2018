@@ -40,16 +40,21 @@ and CEF and Regression: [Lecture 3](https://github.com/MetricsNJU/Metrics_2018/b
 [Lecture 8B](https://github.com/MetricsNJU/Metrics_2018/blob/master/Slides/Lec8B_2018_Metrics_v2.pdf)(**11/1 updated**)
 - 11/8 OB Decomposition: [Lecture 9](https://github.com/MetricsNJU/Metrics_2018/blob/master/Slides/2018_Metrics_Lec9.pdf)(**11/8 updated**)
 - 11/22 Instrumental Variable: [Lecture 10](https://github.com/MetricsNJU/Metrics_2018/blob/master/Slides/Metrics_2018_Lec10_v5.pdf)(**11/29 updated**)
-- Application:Chen, Kung and Ma(2017),"Long Live Keju! The Persistent Effects of China’s Imperial Examination System", 
 
-    * [working paper](https://github.com/MetricsNJU/Metrics_2018/blob/master/Slides/Longlive_keju.pdf)
-    * [slides](https://github.com/MetricsNJU/Metrics_2018/blob/master/Slides/LonglivekejuV5.pdf)
+    - Application:Chen, Kung and Ma(2017),"Long Live Keju! The Persistent Effects of China’s Imperial Examination System", 
+      
+      * [working paper](https://github.com/MetricsNJU/Metrics_2018/blob/master/Slides/Longlive_keju.pdf)
+      * [slides](https://github.com/MetricsNJU/Metrics_2018/blob/master/Slides/LonglivekejuV5.pdf)
 
 - 12/6 Regression Discontinuity Design(RDD): [Lecture 11](https://github.com/MetricsNJU/Metrics_2018/blob/master/Slides/Metrics_2018_Lec11_v5.pdf)(**12/6 updated**)
-- Application:Chen et al(2013),"Evidence on the impact of sustained exposure to air pollution on life expectancy from China’s Huai River policy",PNSA [Publised version]
-(https://github.com/MetricsNJU/Metrics_2018/blob/master/Slides/Chen_2013_PNSA.pdf)
-- Application: Ebenstein et al(2017),"New evidence on the impact of sustained exposure to air pollution on life expectancy from China’s Huai River Policy",PNSA [Publised version]
-(https://github.com/MetricsNJU/Metrics_2018/blob/master/Slides/Ebenstein_2013_PNSA.pdf)
+  
+    - Application:Chen et al(2013),"Evidence on the impact of sustained exposure to air pollution on life expectancy from China’s Huai River policy",PNSA 
+ 
+      * [Publised version](https://github.com/MetricsNJU/Metrics_2018/blob/master/Slides/Chen_2013_PNSA.pdf)
+   
+    - Application: Ebenstein et al(2017),"New evidence on the impact of sustained exposure to air pollution on life expectancy from China’s Huai River Policy",PNSA 
+      
+      * [Publised version](https://github.com/MetricsNJU/Metrics_2018/blob/master/Slides/Ebenstein_2013_PNSA.pdf)
 
 
 ### Math Review (数学复习）
@@ -140,11 +145,4 @@ and CEF and Regression: [Lecture 3](https://github.com/MetricsNJU/Metrics_2018/b
 
 - [Recite 1](https://github.com/MetricsNJU/Metrics_2018/blob/master/Review_and_Lab/Recite_1/Recite_1_Qu.pdf)
 - [Recite 2](https://github.com/MetricsNJU/Metrics_2018/blob/master/Review_and_Lab/Recite_2/Recite_2_Qu.pdf)
-
-
-
-
-
-
-
 
