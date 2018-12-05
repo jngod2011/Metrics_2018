@@ -45,6 +45,9 @@ and CEF and Regression: [Lecture 3](https://github.com/MetricsNJU/Metrics_2018/b
     * [working paper](https://github.com/MetricsNJU/Metrics_2018/blob/master/Slides/Longlive_keju.pdf)
     * [slides](https://github.com/MetricsNJU/Metrics_2018/blob/master/Slides/LonglivekejuV5.pdf)
 
+- 12/6 Regression Discontinuity Design(RDD): [Lecture 11](https://github.com/MetricsNJU/Metrics_2018/blob/master/Slides/Metrics_2018_Lec11_v4.pdf)
+
+
 ### Math Review (数学复习）
 
 - 9/11 [Recite 1](https://github.com/MetricsNJU/Metrics_2018/blob/master/Review_and_Lab/Recite_1/recite_1_review_of_probability.pdf)
