@@ -46,7 +46,7 @@ and CEF and Regression: [Lecture 3](https://github.com/MetricsNJU/Metrics_2018/b
       * [working paper](https://github.com/MetricsNJU/Metrics_2018/blob/master/Slides/Longlive_keju.pdf)
       * [slides](https://github.com/MetricsNJU/Metrics_2018/blob/master/Slides/LonglivekejuV5.pdf)
 
-- 12/6 Regression Discontinuity Design(RDD): [Lecture 11](https://github.com/MetricsNJU/Metrics_2018/blob/master/Slides/Metrics_2018_Lec11_RDD_v5.pdf)
+- 12/6 Regression Discontinuity Design(RDD): [Lecture 11](https://github.com/MetricsNJU/Metrics_2018/blob/master/Slides/Metrics_2018_Lec11_RDD_v5.pdf)(**12/6 updated**)
   
     - Application:Chen et al(2013),"Evidence on the impact of sustained exposure to air pollution on life expectancy from China’s Huai River policy",PNSA 
  
