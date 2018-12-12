@@ -1,0 +1,122 @@
+---
+title: "**Regression-discontinuity designs**"
+institute: "**Business school,Nanjing University**"
+author: "Jing Bu"
+date: "12/13/2018"
+header-includes:
+    \usepackage{ctex}
+    \usepackage{color}
+    \usepackage{amsmath}
+#output: 
+#  beamer_presentation:
+documentclass: ctexart
+output:
+  rticles::ctex:
+     fig_caption: yes
+     number_sections: yes
+     toc: yes
+classoption: "hyperref,"
+#    colortheme: dolphin
+#    fonttheme: professionalfonts
+#    latex_engine: xelatex
+#    theme: CambridgeUS
+#    toc: false
+#    incremental: false
+---
+
+# Preparation
+
+## Import Data
+```{r echo=TRUE}
+#install.packages("foreign")
+library("foreign")
+votex<-read.dta("/Users/admin/Desktop/teaching assiatant/Econometrics/teaching assistant slides/R/votex.dta")
+```
+
+## Data
+```{r echo=TRUE}
+str(votex)
+```
+
+## Load rddtools package
+```{r echo=TRUE,warning=FALSE}
+#install.packages("devtools")
+#devtools::install_github("bquast/rddtools")
+library("rddtools")
+```
+
+## Set outcome, forcing and cutoff variable
+```{r echo=TRUE,warning=FALSE}
+votex_rdd <- rdd_data(x=d, y=lne,cutpoint=0, data=votex)
+```
+
+## Summary and Plot
+```{r echo=TRUE,warning=FALSE}
+summary(votex_rdd)
+plot(votex_rdd,nbins=50)
+```
+
+# Estimate RDD
+
+## Parametric estimation 
+
+```{r echo=TRUE,warning=FALSE}
+library("rddtools")
+reg_para<-rdd_reg_lm(votex_rdd,slope="separate",order = 1)
+print(reg_para)
+plot(reg_para,ylim=c(21,21.5))
+```
+
+## Nonparametric estimation
+
+```{r echo=TRUE,warning=FALSE}
+reg_np <- rdd_reg_np(rdd_object=votex_rdd, slope = "separate")
+print(reg_np)
+plot(reg_np,ylim=c(21,21.5))
+```
+
+- **Reference**
+- Guido Imbens & Karthik Kalyanaraman,2012,**"Optimal Bandwidth Choice for the Regression Discontinuity Estimator"**, *Review of Economic Studies*,Vol.79(3),933-959
+
+## Covariates
+```{r echo=TRUE,warning=FALSE}
+votex_rdd_cov <- rdd_data(x=d, y=lne,cutpoint=0, data=votex,covar=c(votex$i,votex$votpop,votex$black))
+summary(votex_rdd_cov)
+```
+
+```{r echo=TRUE,warning=FALSE}
+library("rddtools")
+reg_para_cov<- rdd_reg_lm(rdd_object=votex_rdd_cov,slope="separate",covariates=c(votex$i,votex$votpop,votex$black))
+print(reg_para_cov)
+plot(reg_para_cov,ylim=c(21,21.5))
+```
+
+```{r echo=TRUE,warning=FALSE}
+reg_np_cov <- rdd_reg_np(rdd_object=votex_rdd_cov, slope = "separate",covariates=c(votex$i,votex$votpop,votex$black))
+print(reg_np_cov)
+plot(reg_np_cov,ylim=c(21,21.5))
+```
+
+# Regression sensitivity analysis
+
+```{r echo=TRUE,warning=FALSE}
+plotSensi(reg_np,0,1,level = 0.95, output = c("data", "ggplot"), plot = TRUE)
+```
+
+# Placebo Tests
+```{r echo=TRUE}
+plotPlacebo(reg_para, device = "ggplot",level = 0.95)
+```
+
+```{r echo=TRUE}
+plotPlacebo(reg_np, device = "ggplot",level = 0.95)
+```
+
+# Design sensitivity analysis
+```{r echo=TRUE}
+dens_test(reg_para)
+```
+
+- **Reference**
+- Justin McCrary,2008,**"Manipulation of the running variable in the regression discontinuity design:A density test"**,*Journal of Econometrics*, Vol.142(2) ,698-714
+
