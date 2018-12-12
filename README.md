@@ -96,6 +96,10 @@ and CEF and Regression: [Lecture 3](https://github.com/MetricsNJU/Metrics_2018/b
   - [Stata](https://github.com/MetricsNJU/Metrics_2018/blob/master/Review_and_Lab/Stata/iv.pdf)
   - [R](https://github.com/MetricsNJU/Metrics_2018/blob/master/Review_and_Lab/R/Instrumental_variables_estimation.pdf) 
 
+- 12/13 RDD Estimation
+  - [Stata](https://github.com/MetricsNJU/Metrics_2018/blob/master/Review_and_Lab/Stata/iv.pdf)
+
+
 ### Homeworks(课后作业）
 
 - [HW1](https://github.com/MetricsNJU/Metrics_2018/blob/master/HWs/HW1.pdf)  (**9/29 updated**) **due to 10/11**
