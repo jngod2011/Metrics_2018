@@ -8,7 +8,6 @@
 
 |   Topic                | Date                | Location             |  Time               | 
 | --------------------- | -------------------- |--------------------- | ---------------------| 
-|    Lab7: RD    | 12/13         |  逸夫楼B-407(R)/逸B-313(Stata)   | 9:00-12:00am         |
 |    Lab8: DID    | 12/27         |  逸夫楼B-407(R)/逸B-313(Stata)    | 9:00-12:00am         |
 
 
@@ -98,6 +97,7 @@ and CEF and Regression: [Lecture 3](https://github.com/MetricsNJU/Metrics_2018/b
 
 - 12/13 RDD Estimation
   - [Stata](https://github.com/MetricsNJU/Metrics_2018/blob/master/Review_and_Lab/Stata/rd.zip)
+  - [R](https://github.com/MetricsNJU/Metrics_2018/blob/master/Review_and_Lab/Stata/rd.zip)
 
 
 ### Homeworks(课后作业）
