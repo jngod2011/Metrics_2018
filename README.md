@@ -55,7 +55,7 @@ and CEF and Regression: [Lecture 3](https://github.com/MetricsNJU/Metrics_2018/b
       
       * [Publised version](https://github.com/MetricsNJU/Metrics_2018/blob/master/Slides/Ebenstein_2013_PNSA.pdf)
 
-- 12/20 Panel Data: Fixed Effects Model and Difference in Differences(DID): [Lecture 12](https://github.com/MetricsNJU/Metrics_2018/blob/master/Slides/Lec12_Panel_and_DID_v2.pdf)(**12/20 updated**)
+- 12/20 Panel Data: Fixed Effects Model and Difference in Differences(DID): [Lecture 12](https://github.com/MetricsNJU/Metrics_2018/blob/master/Slides/Metrics_2018_Lec12_v2.pdf)(**12/20 updated**)
 
 
 ### Math Review (数学复习）
