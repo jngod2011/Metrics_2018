@@ -101,6 +101,9 @@ and CEF and Regression: [Lecture 3](https://github.com/MetricsNJU/Metrics_2018/b
 - 12/13 RDD Estimation
   - [Stata](https://github.com/MetricsNJU/Metrics_2018/blob/master/Review_and_Lab/Stata/rd.zip)
   - [R](https://github.com/MetricsNJU/Metrics_2018/blob/master/Review_and_Lab/R/Regression-discontinuity_designs.pdf)
+- 12/27 Panel Data and DID
+  - [Stata](https://github.com/MetricsNJU/Metrics_2018/blob/master/Review_and_Lab/Stata/rd.zip)
+  - [R](https://github.com/MetricsNJU/Metrics_2018/blob/master/Review_and_Lab/R/Panel_Data_and_DID.pdf)
 
 
 ### Homeworks(课后作业）
