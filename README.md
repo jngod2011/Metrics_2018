@@ -1,7 +1,7 @@
 # Introduction to Econometrics at Business School, Nanjing University
 
 
-## 2018年
+## Fall,2018
 
 
 ### **Notice**: The deadline for proposal and HW4
