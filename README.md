@@ -120,7 +120,7 @@ and CEF and Regression: [Lecture 3](https://github.com/MetricsNJU/Metrics_2018/b
   - [DataSet: fertility](https://github.com/MetricsNJU/Metrics_2018/blob/master/HWs/fertility.dta)
   - [DataSet: chip2002_2007](https://github.com/MetricsNJU/Metrics_2018/blob/master/HWs/chip2002_2007.dta)
 
-- [HW4](https://github.com/MetricsNJU/Metrics_2018/blob/master/HWs/HW4.pdf)**due to 1/30/2019** 
+- [HW4](https://github.com/MetricsNJU/Metrics_2018/blob/master/HWs/HW4.pdf) **due to 1/30/2019** 
   - [DataSet: mlda](https://github.com/MetricsNJU/Metrics_2018/blob/master/HWs/mlda.dta)
   - [DataSet: cardkrueger94](https://github.com/MetricsNJU/Metrics_2018/blob/master/HWs/cardkrueger94.dta)
 
