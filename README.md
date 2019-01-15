@@ -4,11 +4,11 @@
 ## 2018年
 
 
-### **Notice**: The New Schedual of Computer Lab Session 
+### **Notice**: The deadline for proposal and HW4
 
-|   Topic                | Date                | Location             |  Time               | 
-| --------------------- | -------------------- |--------------------- | ---------------------| 
-|    Lab8: DID    | 12/27         |  逸夫楼B-407(R)/逸B-313(Stata)    | 9:00-12:00am         |
+|   Topic                | Date                 |  Time               | 
+| --------------------- | -------------------- |--------------------- | 
+|   Proposal and HW4 | 1/30/2019           |    24:00pm         |
 
 
 
@@ -131,31 +131,5 @@ and CEF and Regression: [Lecture 3](https://github.com/MetricsNJU/Metrics_2018/b
 
 
 
-## 2017年
 
-
-### Syllabus(课程计划）
-
-### Slides(课堂讲义）
-
-- [Lecture 0](https://github.com/MetricsNJU/Metrics_2018/blob/master/2017old/Slides/2017_Lec0.pdf)
-- [Lecture 1](https://github.com/MetricsNJU/Metrics_2018/blob/master/2017old/Slides/2017_Lec1.pdf)
-- [Lecture 2](https://github.com/MetricsNJU/Metrics_2018/blob/master/2017old/Slides/2017_Lec2.pdf)
-- [Lecture 3](https://github.com/MetricsNJU/Metrics_2018/blob/master/2017old/Slides/2017_Lec3.pdf)
-- [Lecture 4](https://github.com/MetricsNJU/Metrics_2018/blob/master/2017old/Slides/2017_Lec4.pdf)
-- [Lecture 5](https://github.com/MetricsNJU/Metrics_2018/blob/master/2017old/Slides/2017_Lec5.pdf)
-- [Lecture 6](https://github.com/MetricsNJU/Metrics_2018/blob/master/2017old/Slides/2017_Lec6.pdf)
-- [Lecture 7](https://github.com/MetricsNJU/Metrics_2018/blob/master/2017old/Slides/2017_Lec7.pdf)
-- [Lecture 8](https://github.com/MetricsNJU/Metrics_2018/blob/master/2017old/Slides/2017_Lec8.pdf)
-- [Lecture 9](https://github.com/MetricsNJU/Metrics_2018/blob/master/2017old/Slides/2017_Lec9.pdf)
-- [Lecture 10A](https://github.com/MetricsNJU/Metrics_2018/blob/master/2017old/Slides/2017_Lec10A.pdf)
-- [Lecture 10B](https://github.com/MetricsNJU/Metrics_2018/blob/master/2017old/Slides/2017_Lec10B.pdf)
-- [Lecture 11](https://github.com/MetricsNJU/Metrics_2018/blob/master/2017old/Slides/2017_Lec11.pdf)
-- [Lecture 12](https://github.com/MetricsNJU/Metrics_2018/blob/master/2017old/Slides/2017_Lec12.pdf)
-- [Lecture 13](https://github.com/MetricsNJU/Metrics_2018/blob/master/2017old/Slides/Final_Review_print.pdf)
-
-### Math Review (数学复习）
-
-- [Recite 1](https://github.com/MetricsNJU/Metrics_2018/blob/master/Review_and_Lab/Recite_1/Recite_1_Qu.pdf)
-- [Recite 2](https://github.com/MetricsNJU/Metrics_2018/blob/master/Review_and_Lab/Recite_2/Recite_2_Qu.pdf)
 
